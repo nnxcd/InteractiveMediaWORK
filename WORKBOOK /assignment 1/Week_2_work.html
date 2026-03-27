@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2 Activities</title>
+  <style>
+
+    body{
+        background-color: rgb(13, 255, 0);
+        font-family: monospace;
+        cursor: url(cursor/CrosshairPrecisionBlue.cur) 24 24, auto;
+
+    }
+    .gallery-webpages {
+      column-count: 2;
+      column-gap: 1rem;
+      padding: 1rem;
+    }
+
+    .gallery-item-webpages {
+      width: 100%;
+      margin-bottom: 1rem;
+      break-inside: avoid;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item-webpages img {
+      width: 100%;
+      display: block;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.7); color: white;
+      padding: 0.5rem; transform: translateY(100%);
+      transition: 0.3s; font-size: 0.8rem;
+    }
+
+    .gallery-item-webpages:hover .caption {
+      transform: translateY(0);
+    }
+
+    .gallery-paper-prototype {
+      column-count: 2;
+      column-gap: 3rem;
+      padding: 1rem;
+    }
+
+    .gallery-item-pp {
+      width: 100%;
+      margin-bottom: 1rem;
+      break-inside: avoid;
+    }
+
+    .gallery-item-pp img {
+      width: 100%;
+      display: block;
+    }
+
+    .crazy8s {
+      width: 90%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .crazy8s img {
+      width: 100%;
+      display: block;
+    }
+    table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse; /* Merges borders into a single line */
+            padding: 8px; /* Adds space between cell content and border */
+            text-align: left; /* Aligns text to the left */
+            font-size: large;
+    }
+    table {
+            width: 100%; /* Optional: Makes the table responsive to its container */
+    }
+
+    p{
+        font-size: large;
+    }
+
+    p.right-decoration-dots{
+    font-size: 1.2cap;
+    right: 0;             
+    top: 0;
+    overflow: hidden;
+    letter-spacing: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<a href="index.html" style="color: rgb(27, 0, 136); font-size: x-large;">HOME</a><br/><br/>
+  <h1>Week 2</h1>
+  <p class="right-decoration-dots">
+    *****************************************
+    <br>*****************************************
+    <br>*****************************************
+    </p>
+  <h2>Note-worthy web pages</h2>
+  <div class="gallery-webpages">
+
+    <!--Johanna Jaskowska-->
+    <div class="gallery-item-webpages">
+      <img src="images/week_2_images/intro-jj-website.png" alt="Johanna Jaskowska website screenshot">
+      <p>This kinda freaked me out when I first saw it.
+        But I was surprised as to how fast it loaded, considering that it 
+        uses high-quality graphics (although it's definitely slower than your average site).
+      </p>
+      <div class="caption">Johanna Jaskowska</div>
+    </div>
+
+    <div class="gallery-item-webpages">
+      <img src="images/week_2_images/popup-jj-website.png" alt="Johanna Jaskowska website second screenshot">
+      <p>Clicking on the site brings this pop-up, showing all of 
+        Johanna Jaskowska's work.</p>
+      <div class="caption">Johanna Jaskowska</div>
+    </div>
+
+    <div class="gallery-item-webpages">
+      <img src="images/week_2_images/preview-jj-website.png" alt="Johanna Jaskowska website third screenshot">
+      <p>When you click on one of the projects, the background changes to 
+        that site and shows information regarding it.
+      </p>
+      <div class="caption">Johanna Jaskowska</div>
+    </div>
+
+    <!--Olafur Eliasson-->
+    <div class="gallery-item-webpages">
+      <img src="images/week_2_images/loading-olafureliasson.png" alt="Olafur Eliasson loading page">
+      <p>The loading animation that pops up before you go into 
+        Olafur Eliasson's portfolio.
+      </p>
+      <div class="caption">Olafur Eliasson</div>
+    </div>
+
+    <div class="gallery-item-webpages">
+      <img src="images/week_2_images/gallery-olafureliasson.png" alt="Olafur Eliasson portfolio website">
+      <p>Clicking on the site brings this pop-up, showing all of 
+        3D gallery of Olafur Eliasson's work.</p>
+      <div class="caption">Olafur Eliasson</div>
+    </div>
+
+  </div>
+  <p class="right-decoration-dots">
+    *****************************************
+    <br>*****************************************
+    <br>*****************************************
+    </p>
+  <h2>Crazy 8s</h2>
+  <div class="crazy8s">
+    <img src="images/week_2_images/crazy8s.png" alt="crazy 8s picture"/>
+  </div>
+  <!--crazy8s table-->
+<br>
+<br> <p>- What each square represents - </p>
+<br>
+<table class="crazy8s-table">
+    <br>
+    <tr>
+    <td>"Spatial gallery" — an interactive gallery</th>
+    <td>A caterpillar popping out of an apple with each ring as a menu item</td>
+    <td>A 3D visual of a 'cyberdeck' within a shell</th>
+    <td>Similar to <b> Johanna Jaskowska's</b> work, where there would be a girl in the background eyeing around the menu, except you can drag it around</td>
+    </tr>
+    <tr>
+    <td>A hand that's been dithered, reaching towards a ascii star</th>
+    <td>A picture of a laptop that'll turn pixelated when passed through a row that makes everything underneath pixelated</td>
+    <td>3D butterflies flying around, when you click one of them, it turns into a menu</th>
+    <td>A white space reaching towards a black box that's all dithering and scaterring, reminiscant of Interstellar (2014)</td>
+    
+    </tr>
+</table>
+<p class="right-decoration-dots">
+    *****************************************
+    <br>*****************************************
+    <br>*****************************************
+    </p>
+  <h2>Paper prototype</h2>
+  <div class="gallery-paper-prototype">
+
+    <div class="gallery-item-pp">
+      <img src="images/week_2_images/paper_prototype_1.jpeg" alt="First step of paper prototype">
+      <p>I was inspired by Johanna Jaskowska's website, and wanted to
+        go off of the use of 3D and interactivity. This website would have 3D butterflies floating around, and nothing else,
+        provoking you to click on it.
+      </p>
+    </div>
+
+    <div class="gallery-item-pp">
+      <img src="images/week_2_images/paper_prototype_2.png" alt="Second step of paper prototype">
+      <p>Once you clicked on it, a pop-up would appear with details regarding
+        the project inside it, with pictures.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

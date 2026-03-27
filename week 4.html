@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--AI-prompted coding website having done in class-->
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#000000",
+              "surface": "#0a0a0a",
+              "primary": "#ffffff",
+              "on-background": "#ffffff",
+              "on-surface": "#e0e0e0",
+              "outline": "#333333",
+            },
+            fontFamily: {
+              "headline": ["Space Mono", "monospace"],
+              "body": ["JetBrains Mono", "monospace"],
+              "label": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            overflow: hidden;
+            color: white;
+        }
+        .ascii-canvas {
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1;
+            white-space: pre;
+            pointer-events: none;
+        }
+        .glow-star {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .perspective-container {
+            perspective: 1200px;
+        }
+        .ascii-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.03);
+            position: absolute;
+            z-index: 100;
+            animation: scanline 8s linear infinite;
+        }
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="font-body text-on-background bg-background selection:bg-white selection:text-black">
+<div class="scanline"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-black border-b border-white/20 flex justify-between items-center px-12 py-4 z-50">
+<div class="text-lg font-bold tracking-widest font-headline">[THE_ATRIUM.EXE]</div>
+<div class="hidden md:flex items-center gap-10 font-label text-[10px] uppercase tracking-widest">
+<a class="text-white border-b border-white pb-1" href="#">_gallery</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="#">_exhibits</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="#">_archive</a>
+<a class="text-zinc-500 hover:text-white transition-colors" href="#">_about</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-sm">terminal</button>
+<button class="material-symbols-outlined text-sm">settings_input_component</button>
+</div>
+</nav>
+<!-- 3D ASCII Room -->
+<div class="fixed inset-0 z-0 perspective-container overflow-hidden">
+<!-- Floor -->
+<div class="absolute bottom-0 w-full h-[60vh] origin-bottom bg-black" style="transform: rotateX(75deg);">
+<div class="ascii-canvas absolute inset-0 text-white/10 text-[10px] select-none">
+<script>
+                    document.write(Array(40).fill("+ - - - - ".repeat(50)).join("\n"));
+                </script>
+</div>
+</div>
+<!-- Back Wall (ASCII Pattern) -->
+<div class="absolute inset-0 z-[-1] opacity-20">
+<div class="ascii-canvas text-[8px] leading-none text-zinc-700">
+<script>
+                    document.write(Array(150).fill(". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ".repeat(4)).join("\n"));
+                </script>
+</div>
+</div>
+<!-- Central Star -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full z-10 flex flex-col items-center">
+<div class="ascii-canvas glow-star text-white text-3xl font-bold">
+     *
+  * +++ *
+*++ X ++*
+  * +++ *
+     *
+            </div>
+<div class="mt-4 text-[10px] tracking-[0.5em] text-white/40 uppercase">Void_Singularity</div>
+</div>
+<!-- Reaching Hand (Bottom/Foreground) -->
+<div class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+<div class="ascii-canvas text-white/80 text-[12px] leading-[14px]">
+             _  _
+            | || | _
+     _  _   | || || |
+    | || |_ | || || |
+    | || | || || || |
+    | || | || || || |
+    | || | || || || |
+    | || | || || || |
+    | || | || || || |
+  __| || | || || || |
+ /  | || | || || || |
+|   | || | || || || |
+|   | || | || || || |
+ \  | || | || || || |
+  \ | || | || || || |
+   \| || | || || || |
+    | || | || || || |
+    | || | || || || |
+    | || | || || || |
+    \______________/
+            </div>
+</div>
+</div>
+<!-- Main Content Overlays (Styled as Terminal Elements) -->
+<main class="relative z-30 min-h-screen flex flex-col items-center justify-center pt-20">
+<!-- Structural Text -->
+<div class="absolute top-40 left-20 border-l border-white/20 pl-8 pointer-events-none">
+<h1 class="font-headline text-4xl font-bold tracking-tighter text-white/20">SYSTEM.INIT()</h1>
+<h1 class="font-headline text-6xl font-bold tracking-tighter text-white mt-2">STRUCTURE_001</h1>
+<div class="mt-4 text-[10px] font-label text-zinc-500 uppercase tracking-widest flex items-center gap-4">
+<span>[ STATUS: ACTIVE ]</span>
+<span class="w-12 h-[1px] bg-white/10"></span>
+<span>[ SECTOR: VOID ]</span>
+</div>
+</div>
+<!-- Spatial Interaction Hint -->
+<div class="absolute bottom-12 flex flex-col items-center gap-2 text-white/30">
+<span class="font-label text-[9px] uppercase tracking-[0.4em]">_scroll_to_traverse_</span>
+<div class="w-[1px] h-12 bg-white/20"></div>
+</div>
+</main>
+<!-- SideNavBar (Terminal style) -->
+<aside class="fixed bottom-12 left-12 w-60 bg-black border border-white/20 p-6 z-40">
+<div class="mb-6 border-b border-white/10 pb-4">
+<h4 class="font-headline text-[10px] font-bold text-white tracking-widest uppercase mb-1">&gt; DATA_OVERLAY</h4>
+<p class="font-body text-[9px] text-zinc-500">Core_Access: UNRESTRICTED</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-white font-bold font-label text-[10px] hover:bg-white hover:text-black p-1 transition-all cursor-pointer">
+<span>[i]</span>
+<span>SPACE_MANIFEST</span>
+</div>
+<div class="flex items-center gap-3 text-zinc-500 font-label text-[10px] hover:text-white p-1 transition-all cursor-pointer">
+<span>[#]</span>
+<span>VERTEX_DATA</span>
+</div>
+<div class="flex items-center gap-3 text-zinc-500 font-label text-[10px] hover:text-white p-1 transition-all cursor-pointer">
+<span>[@]</span>
+<span>LOC_COORD</span>
+</div>
+</div>
+</aside>
+<!-- Info Pill -->
+<div class="fixed bottom-12 right-12 z-40 bg-white text-black px-6 py-3 flex items-center gap-6">
+<div class="flex flex-col">
+<span class="font-label text-[8px] font-bold uppercase tracking-widest">Active_Node</span>
+<span class="font-headline text-xs font-bold">NULL_SPACE_REACH</span>
+</div>
+<div class="h-4 w-[1px] bg-black/20"></div>
+<div class="flex gap-1">
+<div class="w-2 h-2 bg-black"></div>
+<div class="w-2 h-2 border border-black/20"></div>
+<div class="w-2 h-2 border border-black/20"></div>
+</div>
+</div>
+</body></html>
